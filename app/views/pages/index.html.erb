@@ -1,0 +1,16 @@
+<%= link_to "Ask new question",  new_question_path %> |
+
+<% if @questions == [] %>
+    <p>Create new question</p>
+<% else %>
+    <% @questions.each do |question| %>
+       <p>User
+      <% if !question.user.userparametr.nil? %>
+        <%= image_tag question.user.userparametr.avatar.url(:small) %>
+  <% end %>
+        <b><%= question.user.email %></b> write: <br />
+       <b><%= question.title %></b><br />
+       <%= question.body %></p>
+       <p><%= link_to "Read More", question_path(question.id) %></p>
+    <% end %>
+<% end %>
