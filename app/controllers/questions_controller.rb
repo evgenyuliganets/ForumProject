@@ -53,4 +53,7 @@ private
   def find_question
     @question = Question.find_by(id: params[:id])
   end
+    class Event < ActiveRecord::Base 
+     Language = ['C++','C#','Java','Python','Ruby'] 
+end 
 end
