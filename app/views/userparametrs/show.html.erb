@@ -1,0 +1,6 @@
+<%= image_tag current_user.userparametr.avatar.url(:thumb) %><br />
+Firstname: <%= current_user.userparametr.firstname %><br />
+Lastname: <%= current_user.userparametr.lastname %><br />
+Age: <%= current_user.userparametr.age %><br />
+<%= link_to "edit", edit_userparametr_path(current_user.id) %><br />
+

@@ -1,0 +1,20 @@
+User: <%= @question.user.email %><br />
+Title: <%= @question.title %><br />
+Body: <%= @question.body %><br />
+<hr>
+<% @comments.each do |comment| %>
+   <p>
+    User <b><%= comment.user.userparametr.firstname %></b> write: <br />
+    <%= comment.body %><br />
+   </p>
+<% end %>
+<h2>Write comment here </h2>
+<%= form_for :question_comment, url: question_questioncomments_path(@question.id) do |f| %>
+  Comment: <%= f.text_area :body, size: "60x5" %><br />
+  <%= f.submit "Create" %>
+<% end %>
+
+<% if @question.user_id == current_user.id %>
+<p><%= link_to "edit", edit_question_path(@question.id) %> |
+<%= link_to "delete", question_path(@question.id), method: :delete %><br /></p>
+<% end %>
